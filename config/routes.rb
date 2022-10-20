@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  #custom signup routes
+  get    '/signup', to: 'users#new'
+  post   '/signup', to: 'users#create' 
+  #custom login routes
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+
+  #auto generated resource routes
   resources :comments, only:[:index, :create, :show, :update, :destroy]
   resources :users, only:[:index, :create, :show, :destroy]
   resources :questions, only:[:index, :create, :show, :update, :destroy]
