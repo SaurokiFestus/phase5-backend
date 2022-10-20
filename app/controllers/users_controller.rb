@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    skip_before_action :authorize, only: :create
     
     #render a signup form
     def new
@@ -6,6 +7,9 @@ class UsersController < ApplicationController
     end 
 
     #processess the signup form
-    def create 
+    def create
+        user = User.create!(user_params)
+        session[:user_id] = user.id 
+        render json: user, status: :created
     end
 end
