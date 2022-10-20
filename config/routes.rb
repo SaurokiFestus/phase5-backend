@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #custom login routes
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
 
   #auto generated resource routes
   resources :comments, only:[:index, :create, :show, :update, :destroy]
