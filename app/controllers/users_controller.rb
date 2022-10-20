@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     
     #render a signup form
     def new
-        @user - User.new
+        @user = User.new
     end 
 
     #processess the signup form
@@ -12,4 +12,14 @@ class UsersController < ApplicationController
         session[:user_id] = user.id 
         render json: user, status: :created
     end
+
+    def show
+        render json: @current_user
+    end
+
+    private 
+
+    def user_params
+        params.permit(:first_name, :last_name, :username, :password, :password_confirmation)
+    end 
 end
