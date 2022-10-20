@@ -1,3 +1,3 @@
 class AllAnswerSerializer < ActiveModel::Serializer
-  attributes :id ,:downvote, :upvote
+  attributes :id ,:body,:downvote, :upvote
 end

@@ -17,7 +17,6 @@ class AllAnswersController < ApplicationController
         def create
           @allanswer = AllAnswer.new(allanswer_params)
 
-          byebug
       
           if @allanswer.save
             render json: @allanswer, status: :created, location: @allanswer
@@ -48,7 +47,7 @@ class AllAnswersController < ApplicationController
       
           # Only allow a list of trusted parameters through.
           def allanswer_params
-            params.permit(:body, :upvote, :downvote, :upvote, :question_id, :user_id)  
+            params.permit(:body, :upvote, :downvote , :upvote , :question_id, :user_id)  
           end
       
       
