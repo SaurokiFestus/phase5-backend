@@ -25,13 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_183931) do
   end
 
 
-  create_table "answers", force: :cascade do |t|
-    t.string "body"
-    t.integer "question_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+
 
   create_table "comments", force: :cascade do |t|
     t.string "body"
