@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_20_183931) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "all_answers", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2022_10_20_051301) do
+  create_table "answers", force: :cascade do |t|
     t.string "body"
     t.integer "upvote"
     t.integer "downvote"
@@ -44,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_183931) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false

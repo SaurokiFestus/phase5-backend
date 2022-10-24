@@ -21,6 +21,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # gem "rack-cors"
 
 group :development, :test do
+  gem "sqlite3", "~> 1.4"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
@@ -29,4 +30,9 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+# Use Active Model has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+
+gem "active_model_serializers", "~> 0.10.12"
 
