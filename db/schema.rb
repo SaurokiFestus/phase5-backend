@@ -13,11 +13,16 @@
 ActiveRecord::Schema[7.0].define(version: 2022_10_20_051301) do
   create_table "answers", force: :cascade do |t|
     t.string "body"
+    t.integer "upvote"
+    t.integer "downvote"
     t.integer "question_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+
+
 
   create_table "comments", force: :cascade do |t|
     t.string "body"
@@ -44,7 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_051301) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.string "votable_type"
+    t.integer "up_vote"
+    t.integer "down_vote"
     t.integer "answer_id"
     t.integer "user_id"
     t.integer "question_id"
