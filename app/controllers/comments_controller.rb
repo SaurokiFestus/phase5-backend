@@ -1,30 +1,39 @@
 class CommentsController < ApplicationController
-before_action :find_comment, only [:destroy, :edit, :update]
+# before_action :find_comment, only [:destroy, :edit, :update]
+
+def index 
+    @comment= Comment.all
+    render json: @comment
+end
+
 def create
-    @comment = @answer.comments.create(:params[:comment].permit(:content))
-    @comment.user_id = current_user.id
-    @comment.save
+    @comment=Comment.new(comments_params)
 
     if  @comment.save
-        redirect_to answer_path(@answer)
+        render json: @comment ,status: :created
     else 
-        render 'new'
+        render json: @comment.errors, status: :unprocessable_entity
     end
 end
+
+
 def destroy
     @comment.destroy
-    redirect_to answer_path(@answer)
 
 end
 def update
-    if @comment.update(params[:comment].permit(:content)
-        redirect_to answer_path(@answer)
+    if @comment.update(comments_params)
+        render json: @comment
     else 
-        render 'edit'
+        render json: @comment.errors, status: :unprocessable_entity
     end
 end
 
 private
+
+def comments_params
+    params.permit(:body ,:user_id,:answer_id)
+end
 
 def find_comment
     @comment = Comment.find(params[:comment_id])
