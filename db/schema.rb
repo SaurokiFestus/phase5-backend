@@ -21,14 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_182958) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "answers", force: :cascade do |t|
-    t.string "body"
-    t.integer "question_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.string "body"
     t.integer "user_id"
@@ -49,15 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_182958) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "votes", force: :cascade do |t|
-    t.string "votable_type"
-    t.integer "answer_id"
-    t.integer "user_id"
-    t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
