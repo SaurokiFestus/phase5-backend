@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/1
   def show
-    render json: @answer
+    render json: @answer ,serializer: ShowAnswerAndCommentsSerializer
   end
 
   # POST /answers
