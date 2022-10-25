@@ -19,7 +19,7 @@ gem 'byebug'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem "rack-cors"
 
 group :development, :test do
   gem "sqlite3", "~> 1.4"
@@ -34,6 +34,4 @@ end
 
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
-gem "active_model_serializers", "~> 0.10.12"
 
