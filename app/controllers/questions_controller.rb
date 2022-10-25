@@ -1,9 +1,8 @@
 class QuestionsController < ApplicationController
-    before_action :set_question, only: %i[ show update destroy ]
       
     # GET /questions
     def index
-      @questions = Question.all
+      @questions = Question.all.order(id: :desc)
   
       render json: @questions
     end

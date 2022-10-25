@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+12.times do
+    Question.create(
+        title: Faker::Lorem.sentence(word_count: 3),
+        body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
+        user_id:rand(1..4)
+    )
+end
+
