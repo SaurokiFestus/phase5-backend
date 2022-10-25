@@ -12,14 +12,15 @@ class QuestionsController < ApplicationController
     # GET /questions/1
     def show
       question = find_params
-      render json: question ,status: :ok
+      # render json: question, include: [:all_answers]
+      render json: question,serializer: ShowQuestionAnswersCommentsSerializer,status: :ok
 
       # render json: @question, status: :ok
     end
   
     # POST /questions
     def create
-      question = Question.new(question_params)
+      question = Question.create!(question_params)
       render json: question ,status: :ok
     end
   

@@ -12,6 +12,7 @@ gem 'faker'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
+gem 'active_model_serializers'
 gem 'byebug'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
