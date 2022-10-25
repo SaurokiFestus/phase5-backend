@@ -6,8 +6,6 @@ ruby "2.7.4"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
-gem "rack-cors"
-
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -20,7 +18,7 @@ gem 'byebug'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
+gem "rack-cors"
 
 group :development, :test do
   gem "sqlite3", "~> 1.4"
