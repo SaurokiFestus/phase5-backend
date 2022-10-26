@@ -1,4 +1,4 @@
-class AllAnswer < ApplicationRecord
+class Answer < ApplicationRecord
     validates :body, presence: true
     belongs_to :question
     has_many :comments
