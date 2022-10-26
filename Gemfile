@@ -19,6 +19,7 @@ gem "dotenv-rails"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
+gem 'devise_token_auth'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
