@@ -1,49 +1,50 @@
 class QuestionsController < ApplicationController
-    before_action :set_question, only: %i[ show update destroy ]
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unproccessable_entity_response
+
       
     # GET /questions
     def index
-      @questions = Question.all
+      @questions = Question.all.order(id: :desc)
   
       render json: @questions
     end
   
     # GET /questions/1
     def show
-      render json: @question,serializer: ShowQuestionAnswersCommmentsSerializer, status: :ok
+      question = find_params
+      # render json: question, include: [:all_answers]
+      render json: question,serializer: ShowQuestionAnswersCommentsSerializer, include: ['answers.comments'] ,status: :ok
+
+      # render json: @question, status: :ok
     end
   
     # POST /questions
     def create
-      @question = Question.new(question_params)
-
-  
-      if @question.save
-        render json: @question, status: :created, location: @question
-      else
-        render json: @question.errors, status: :unprocessable_entity
-      end
+      question = Question.create!(question_params)
+      render json: question ,status: :ok
     end
   
     # PATCH/PUT /questions/1
     def update
-      if @question.update(question_params)
-        render json: @question
-      else
-        render json: @question.errors, status: :unprocessable_entity
-      end
+      question = find_params
+      question.update!(question_params)
+      render json: question, status: :ok
     end
   
     # DELETE /questions/1
     def destroy
-      @question.destroy
+    find_params.destroy
     end
   
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_question
-        @question = Question.find(params[:id])
-      end
+      def find_params
+        Question.find(params[:id])
+    end
+
+    def render_unproccessable_entity_response(invalid)
+      render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
   
       # Only allow a list of trusted parameters through.
       def question_params
