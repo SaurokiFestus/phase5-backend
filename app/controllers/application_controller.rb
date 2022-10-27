@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
     wrap_parameters format: []
     include ActionController::Cookies
     
-    # before_action :authorize
+    before_action :authorize
 
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
