@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
     def show
       question = find_params
       # render json: question, include: [:all_answers]
-      render json: question,serializer: ShowQuestionAnswersCommentsSerializer,status: :ok
+      render json: question,serializer: ShowQuestionAnswersCommentsSerializer, include: ['answers.comments'] ,status: :ok
 
       # render json: @question, status: :ok
     end
