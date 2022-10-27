@@ -8,8 +8,8 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
     
 
-    #bcrypt password security
-    has_secure_password
+  #bcrypt password security
+  has_secure_password
 
   def self.from_omniauth(access_token)
     data = access_token.info
