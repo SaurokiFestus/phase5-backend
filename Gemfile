@@ -15,9 +15,6 @@ gem "puma", "~> 5.0"
 gem 'active_model_serializers'
 gem 'byebug'
 
-# Google auth gems
-
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
