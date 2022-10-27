@@ -11,7 +11,6 @@
         title: Faker::Lorem.sentence(word_count: 3),
         body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
         user_id:rand(1..4)
-<<<<<<< HEAD
     )
 end
 
@@ -29,8 +28,6 @@ end
                 body: Faker::Lorem.paragraph(sentence_count: 4, supplemental: false, random_sentences_to_add: 4),
                 user_id: rand(1..4),
                 answer_id: [36,37,47,48].sample
-=======
->>>>>>> 90634062ec65e7661f621be10f518a9445122fd3
     )
 end
 
