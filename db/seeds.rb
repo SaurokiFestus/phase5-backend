@@ -23,11 +23,11 @@ end
     )
 end
 
-10.times do
+5.times do
     Comment.create(
                 body: Faker::Lorem.paragraph(sentence_count: 4, supplemental: false, random_sentences_to_add: 4),
                 user_id: rand(1..4),
-                answer_id: [36,37,47,48].sample
+                answer_id: [1..48].sample
     )
 end
 
