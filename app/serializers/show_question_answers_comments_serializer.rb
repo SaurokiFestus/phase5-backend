@@ -1,6 +1,7 @@
 class ShowQuestionAnswersCommentsSerializer < ActiveModel::Serializer
-  attributes :id,:title,:body
+  attributes :id,:title,:body,:created_at
   has_many :answers
+  has_many :comments,through: :answers
 
 
 end
