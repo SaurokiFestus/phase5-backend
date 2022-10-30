@@ -84,6 +84,13 @@ GEM
     erubi (1.11.0)
     faker (2.23.0)
       i18n (>= 1.8.11, < 2)
+<<<<<<< HEAD
+    faraday (2.6.0)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.1)
+=======
+>>>>>>> 27998d58bfdd2de9e1844e4912feed40bc577f02
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -168,7 +175,16 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   debug
+<<<<<<< HEAD
+  devise_token_auth
+  dotenv-rails
   faker
+  omniauth
+  omniauth-google-oauth2
+  omniauth-rails_csrf_protection
+=======
+  faker
+>>>>>>> 27998d58bfdd2de9e1844e4912feed40bc577f02
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
