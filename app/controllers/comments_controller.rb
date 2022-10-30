@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 # before_action :find_comment, only [:destroy, :edit, :update]
 
 def index 
-    @comments= Comment.all
+    @comments= Comments.all
     render json: @comments
 end
 
