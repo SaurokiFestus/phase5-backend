@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
     def index
       @questions = Question.all.order(id: :desc)
   
-      render json: @questions
+      render json: @questions,each_serializer: ShowQuestionAnswersCommentsSerializer
     end
   
     # GET /questions/1
@@ -14,8 +14,6 @@ class QuestionsController < ApplicationController
       question = find_params
       # render json: question, include: [:all_answers]
       render json: question,serializer: ShowQuestionAnswersCommentsSerializer, include: ['answers.comments'] ,status: :ok
-
-      # render json: @question, status: :ok
     end
   
     # POST /questions

@@ -30,6 +30,12 @@ def update
     end
 end
 
+def decrement_slots
+    answer=Answer.find(params[:id])
+    answer.update(downvote: answer.downvote - 1 )
+    render json: answer
+end
+
 private
 
 def comments_params
