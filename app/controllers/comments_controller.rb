@@ -16,10 +16,7 @@ def create
     comment=Comment.create!(comments_params)
     render json: comment ,status: :created
 end
-def create
-    comment=Comment.create!(comments_params)
-    render json: comment ,status: :created
-end
+
 
 
 def destroy
