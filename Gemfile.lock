@@ -152,13 +152,7 @@ GEM
     rake (13.0.6)
     reline (0.3.1)
       io-console (~> 0.5)
-    responders (3.0.1)
-      actionpack (>= 5.0)
-      railties (>= 5.0)
-    ruby2_keywords (0.0.5)
-    snaky_hash (2.0.1)
-      hashie
-      version_gem (~> 1.1, >= 1.1.1)
+    sqlite3 (1.5.3-x86_64-darwin)
     sqlite3 (1.5.3-x86_64-linux)
     thor (1.2.1)
     timeout (0.3.0)
@@ -178,6 +172,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   debug
+  faker
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
