@@ -1,56 +1,40 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: :create
-    
-    #render a signup form
-    def new
-        @user = User.new
-    end 
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-    #processess the signup form
+
+    before_action :authorize
+    skip_before_action :authorize, only: [:create]
+
     def create
-        user = User.create(user_params)
-        if user.valid?
-            session[:user_id] = user.id # this is the piece that logs a user in and keeps track of users info in subsequent requests.
-            render json: user, status: :ok
-        else
-            render json: user.errors.full_messages, status: :unprocessable_entity
-        end
+        user = User.create!(user_params)
+        session[:user_id] = user.id
+        render json: {success:'Successfully created'}, status: :created
     end
 
     def show
-        if current_user
-            render json: current_user, status: :ok
-        else
-            render json: "No current session stored", status: :unauthorized
-        end
+        user = User.find_by(id: session[:user_id])
+        render json: user ,serializer: ShowUserEventsSerializer, status: :ok
     end
 
-    def self.create_user_for_google(data)                  
-        where(uid: data["email"]).first_or_initialize.tap do |user|
-            user.provider="google_oauth2"
-            user.uid=data["email"]
-            user.email=data["email"]
-            user.password=Devise.friendly_token[0,20]
-            user.password_confirmation=user.password
-            user.save!
-        end
-    end 
-
-    set_headers(tokens)
-    render json: { status: 'Signed in successfully with google'}
-
-    private 
-                                               
-    def set_headers(tokens)
-        headers['access-token'] = (tokens['access-token']).to_s
-        headers['client'] =  (tokens['client']).to_s
-        headers['expiry'] =  (tokens['expiry']).to_s
-        headers['uid'] =@user.uid             
-        headers['token-type'] = (tokens['token-type']).to_s                  
-        end                                          
+    def index
+        user =User.all
+        render json: user
     end
+
+    
+
+    private
 
     def user_params
-        params.permit(:username, :email, :password, :password_confirmation)
-    end 
+        params.permit(:username, :password, :password_confirmation)
+    end
+
+    def authorize
+        return render json: { error: "Invalid username or password" }, status: :unauthorized unless session.include? :user_id
+    end
+
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
 end
