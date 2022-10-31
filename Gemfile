@@ -10,12 +10,12 @@ gem "rails", "~> 7.0.4"
 gem "pg", "~> 1.1"
 gem 'faker'
 
-# Google auth gems
-gem "dotenv-rails"
-gem "omniauth"
-gem "omniauth-google-oauth2"
-gem "omniauth-rails_csrf_protection"
-gem 'devise_token_auth'
+# # Google auth gems
+# gem "dotenv-rails"
+# gem "omniauth"
+# gem "omniauth-google-oauth2"
+# gem "omniauth-rails_csrf_protection"
+# gem 'devise_token_auth'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
