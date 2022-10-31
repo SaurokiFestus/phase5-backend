@@ -7,14 +7,18 @@ class ApplicationController < ActionController::API
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
 
+    def current_user
+        User.find_by(id: session[:user_id])
+    end
+
 
     private
 
-    # def authorize
-    # @current_user = User.find_by(id: session[:user_id])
+    def authorize
+    @current_user = User.find_by(id: session[:user_id])
 
-    # render json: { errors: ["Sorry, You are Not authorized"] }, status: :unauthorized unless @current_user
-    # end
+    render json: { errors: ["Sorry, You are Not authorized"] }, status: :unauthorized unless @current_user
+    end
 
 
     def render_unprocessable_entity(exception)

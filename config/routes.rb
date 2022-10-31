@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  post 'auth/request', to:'authorization#get_authorization'
   resources :answers
   patch "/answers/:id/decrease", to: "answers#change_votes_decrement"
   patch "/answers/:id/increase", to: "answers#change_votes_increment"
