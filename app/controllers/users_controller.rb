@@ -46,8 +46,7 @@ class UsersController < ApplicationController
         headers['client'] =  (tokens['client']).to_s
         headers['expiry'] =  (tokens['expiry']).to_s
         headers['uid'] =@user.uid             
-        headers['token-type'] = (tokens['token-type']).to_s                  
-        end                                          
+        headers['token-type'] = (tokens['token-type']).to_s                                                           
     end
 
     def user_params
