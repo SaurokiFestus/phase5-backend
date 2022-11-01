@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
-
-  #mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
 
   post 'auth/request', to:'authorization#get_authorization'
   resources :answers
