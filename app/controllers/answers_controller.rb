@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
 
   # GET /answers
   def index
-    @answers = Answer.all
+    @answers = Answer.all.order(:upvote)
 
     render json: @answers
   end

@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_25_153301) do
-  create_table "all_answers", force: :cascade do |t|
-    t.string "body"
-    t.integer "upvote"
-    t.integer "downvote"
-    t.integer "question_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2022_10_31_091504) do
   create_table "answers", force: :cascade do |t|
     t.string "body"
     t.integer "upvote"

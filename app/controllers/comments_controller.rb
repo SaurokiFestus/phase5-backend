@@ -20,15 +20,13 @@ end
 
 
 def destroy
-    @comment.destroy
+    find_comment.destroy
 
 end
 def update
-    if @comment.update(comments_params)
-        render json: @comment
-    else 
-        render json: @comment.errors, status: :unprocessable_entity
-    end
+    comment = find_comment
+    comment.update!(comments_params)
+    render json: comment, status: :ok
 end
 
 def decrement_slots
