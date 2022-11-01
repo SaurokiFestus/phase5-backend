@@ -4,4 +4,5 @@ class ShowQuestionAnswersCommentsSerializer < ActiveModel::Serializer
   has_many :comments,through: :answers
 
 
+
 end
