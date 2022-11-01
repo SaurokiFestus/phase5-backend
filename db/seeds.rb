@@ -10,7 +10,9 @@
     Question.create(
         title: Faker::Lorem.sentence(word_count: 3),
         body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
-        user_id:rand(1..4)
+        user_id:rand(1..4),
+        views:rand(1..4)
+
     )
 end
 
@@ -19,7 +21,8 @@ end
         body: Faker::Lorem.paragraph(sentence_count: 3, supplemental: false, random_sentences_to_add: 4),
         downvote: rand(1..10),
         upvote: rand(1..10),
-        question_id: rand(1..15)
+        question_id: rand(1..15),
+        user_id:rand(1..5)
     )
 end
 
