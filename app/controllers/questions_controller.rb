@@ -33,6 +33,11 @@ class QuestionsController < ApplicationController
     def destroy
     find_params.destroy
     end
+
+    def view
+      question = find_params
+      question.update(views: question.views + 1)
+    end
   
     private
       # Use callbacks to share common setup or constraints between actions.
@@ -46,6 +51,6 @@ class QuestionsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def question_params
-        params.permit(:title,:body, :user_id)  
+        params.permit(:title,:body, :user_id, :views)  
       end
 end
