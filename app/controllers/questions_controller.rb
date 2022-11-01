@@ -33,6 +33,11 @@ class QuestionsController < ApplicationController
     def destroy
     find_params.destroy
     end
+
+    def view
+      question = find_params
+      question.update(views: question.views + 1)
+    end
   
     private
       # Use callbacks to share common setup or constraints between actions.
