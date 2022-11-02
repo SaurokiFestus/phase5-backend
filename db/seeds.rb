@@ -25,6 +25,16 @@
     )
 end
 
+48.times do
+    Answer.create(
+        body: Faker::Lorem.paragraph(sentence_count: 3, supplemental: false, random_sentences_to_add: 4),
+        downvote: rand(1..10),
+        upvote: rand(1..10),
+        question_id: rand(1..15),
+        user_id:rand(1..5)
+    )
+end
+
 50.times do
     Comment.create(
                 body: Faker::Lorem.paragraph(sentence_count: 4, supplemental: false, random_sentences_to_add: 4),

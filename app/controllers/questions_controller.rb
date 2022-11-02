@@ -37,6 +37,7 @@ class QuestionsController < ApplicationController
     def view
       question = find_params
       question.update(views: question.views + 1)
+      render json: question
     end
   
     private
