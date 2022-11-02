@@ -28,16 +28,16 @@ class AnswersController < ApplicationController
   def change_votes_increment
     @answer =Answer.find(params[:id])
     byebug
-    @answer.update(downvote: @answer.downvote - 1, upvote: @answer.update + 1 )
+    @answer.update(downvote: @answer.upvotevote + 1)
     render json: @answer
   end
   
   def change_votes_decrement
     @answer =Answer.find(params[:id])
     @answer.update(downvote: @answer.downvote + 1)
-    # @answer.update(upvote: @answer.upvote - 1)
     render json: @answer
   end
+  
 
 
   # increment upvotedef decrement_slots

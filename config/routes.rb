@@ -21,7 +21,8 @@ Rails.application.routes.draw do
  
   resources :users, only:[:index, :create, :show, :destroy]
   resources :questions, only:[:index, :create, :show, :update, :destroy]
-
+  
+  patch '/views/:id', to: 'questions#view'
  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
