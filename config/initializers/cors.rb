@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors, debug: true, logger: (-> { Rails.logger }) do
   allow do
-    origins 'https://vast-wildwood-37554.herokuapp.com/'
+    origins '*'
 
     resource '/cors',
       :headers => :any,
