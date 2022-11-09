@@ -169,7 +169,7 @@ DEPENDENCIES
   byebug
   debug
   faker
-  pg (~> 1.1)
+  pg
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4)
@@ -180,4 +180,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.21
+   2.3.25

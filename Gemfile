@@ -46,7 +46,7 @@ group :development do
 end
 
 group :production do
-  gem "pg", "~> 1.1" 
+  gem "pg" 
 end
 
 # Use Active Model has_secure_password
