@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::API
+    
+    wrap_parameters format:[]
+
     include ActionController::Cookies
+
     
     # before_action :authorize
 
@@ -10,7 +14,6 @@ class ApplicationController < ActionController::API
     def current_user
         User.find_by(id: session[:user_id])
     end
-
 
     private
 

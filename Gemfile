@@ -7,7 +7,6 @@ ruby "2.7.4"
 gem "rails", "~> 7.0.4"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
 gem 'faker'
 
 # # Google auth gems
@@ -44,6 +43,10 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :production do
+  gem "pg", "~> 1.1" 
 end
 
 # Use Active Model has_secure_password
