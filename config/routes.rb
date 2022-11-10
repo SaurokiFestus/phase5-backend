@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tag_qs
+  resources :tags
 
   post 'auth/request', to:'authorization#get_authorization'
   resources :answers

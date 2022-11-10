@@ -19,13 +19,16 @@ class QuestionsController < ApplicationController
     # POST /questions
     def create
       question = Question.create!(question_params)
+      # question =Question.tag_list.add(params[:tag_list])
+      # question.save
       render json: question ,status: :ok
     end
   
     # PATCH/PUT /questions/1
     def update
       question = find_params
-      question.update!(question_params)
+      question.update!(question_paquestion =Question.tag_list.add(params[:tag_list])
+      # question.saverams)
       render json: question, status: :ok
     end
   
@@ -52,6 +55,6 @@ class QuestionsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def question_params
-        params.permit(:title,:body, :user_id, :views)  
+        params.permit(:title,:body, :user_id, :views,:tag_list)  
       end
 end
