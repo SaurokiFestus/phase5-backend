@@ -19,16 +19,14 @@ class QuestionsController < ApplicationController
     # POST /questions
     def create
       question = Question.create!(question_params)
-      # question =Question.tag_list.add(params[:tag_list])
-      # question.save
+      # question =Question.tag_list.add(params[:tag_list])      
       render json: question ,status: :ok
     end
   
     # PATCH/PUT /questions/1
     def update
       question = find_params
-      question.update!(question_paquestion =Question.tag_list.add(params[:tag_list])
-      # question.saverams)
+      question.update!(question_params)
       render json: question, status: :ok
     end
   
