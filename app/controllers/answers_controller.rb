@@ -4,8 +4,8 @@ class AnswersController < ApplicationController
   # GET /answers
   def index
     @answers = Answer.all.order(:upvote)
-
     render json: @answers
+    
   end
 
   # GET /answers/1

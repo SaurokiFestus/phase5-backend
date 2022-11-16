@@ -1,0 +1,2 @@
+class TagQ < ApplicationRecord
+end

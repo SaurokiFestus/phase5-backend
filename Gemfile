@@ -25,7 +25,8 @@ gem 'byebug'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem "rack-cors"
+gem 'rack-cors'
+gem 'acts-as-taggable-on', '~> 9.0', '>= 9.0.1'
 
 # Google auth gems
 # gem "dotenv-rails"
